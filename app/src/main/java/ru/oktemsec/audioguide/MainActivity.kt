@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
-import org.w3c.dom.Text
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         val btRew: ImageView = findViewById(R.id.bt_rew)
 
         // Media player
-        mediaPlayer = MediaPlayer.create(this, R.raw.song)
+        //https://www.narakeet.com/app/text-to-audio/
+        mediaPlayer = MediaPlayer.create(this, R.raw.welcome)
         mediaPlayer.setVolume(0.8f, 0.8f)
 
         //Make sure you update Seekbar on UI thread
@@ -40,13 +40,9 @@ class MainActivity : AppCompatActivity() {
                 handler.postDelayed(this, 500)
             }
         }
-        // Duration
-        val duration = mediaPlayer.duration.toLong()
-        val sDuration: String = convertFormat(duration)
-        playerDuration.text = sDuration
 
         btPlay.setOnClickListener {
-            playSound(btPlay, btPause, seekBar, runnable)
+            playSound(playerDuration, btPlay, btPause, seekBar, runnable)
         }
 
         btPause.setOnClickListener {
@@ -94,7 +90,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Play on start app
-        playSound(btPlay, btPause, seekBar, runnable)
+        playSound(playerDuration, btPlay, btPause, seekBar, runnable)
+        // after welcome play Main menu sound
+        mediaPlayer.setOnCompletionListener {
+            mediaPlayer.reset()
+            mediaPlayer = MediaPlayer.create(this, R.raw.main_menu)
+            playSound(playerDuration, btPlay, btPause, seekBar, runnable)
+        }
     }
 
     private fun convertFormat(duration: Long): String {
@@ -105,7 +107,11 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun playSound(btnPlay: ImageView, btnPause:ImageView, seekBar: SeekBar, runnable: Runnable) {
+    private fun playSound(playerDuration: TextView, btnPlay: ImageView, btnPause:ImageView, seekBar: SeekBar, runnable: Runnable) {
+        // Duration
+        val duration = mediaPlayer.duration.toLong()
+        val sDuration: String = convertFormat(duration)
+        playerDuration.text = sDuration
         btnPlay.visibility = View.GONE
         btnPause.visibility = View.VISIBLE
         mediaPlayer.start()
