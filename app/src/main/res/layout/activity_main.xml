@@ -65,7 +65,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_map1"
+                    android:src="@drawable/ic_map2"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:translationZ="1dp"/>
@@ -79,15 +79,15 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:src="@drawable/zal_alex_narod"
+                        android:src="@drawable/zal_okt_sevenyears"
                         android:scaleType="centerCrop"
-                        android:contentDescription="@string/zal_alex_narod"/>
+                        android:contentDescription="@string/zal_okt_seven_years"/>
                     <!-- Title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/zal_alex_narod"
+                        android:text="@string/zal_okt_seven_years"
                         android:textSize="18sp"
                         android:textColor="@color/primaryTextColor"/>
                 </LinearLayout>
