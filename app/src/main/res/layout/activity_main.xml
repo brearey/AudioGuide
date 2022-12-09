@@ -28,22 +28,25 @@
                 <!--Map-->
                 <ImageView
                     android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/map1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_map1"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:translationZ="1dp"/>
+                <!-- Photo and title -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginBottom="20dp">
+                    <!-- Photo -->
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:src="@drawable/zal_alex_narod"
                         android:scaleType="centerCrop"
                         android:contentDescription="@string/zal_alex_narod"/>
+                    <!-- Title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -53,6 +56,7 @@
                         android:textColor="@color/primaryTextColor"/>
                 </LinearLayout>
             </RelativeLayout>
+
             <!--Second museum room-->
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -60,54 +64,25 @@
                 <!--Map-->
                 <ImageView
                     android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/map2"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_map1"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:translationZ="1dp"/>
+                <!-- Photo and title -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginBottom="20dp">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:src="@drawable/zal_okt_sevenyears"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/okt_seven_years"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/okt_seven_years"
-                        android:textSize="18sp"
-                        android:textColor="@color/primaryTextColor"/>
-                </LinearLayout>
-            </RelativeLayout>
-            <!--Third museum room-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!--Map-->
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/map1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:translationZ="1dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
+                    <!-- Photo -->
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:src="@drawable/zal_alex_narod"
                         android:scaleType="centerCrop"
                         android:contentDescription="@string/zal_alex_narod"/>
+                    <!-- Title -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -117,6 +92,43 @@
                         android:textColor="@color/primaryTextColor"/>
                 </LinearLayout>
             </RelativeLayout>
+
+            <!--Third museum room-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--Map-->
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_map2"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:translationZ="1dp"/>
+                <!-- Photo and title -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="20dp">
+                    <!-- Photo -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:src="@drawable/zal_alex_narod"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/zal_alex_narod"/>
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/zal_alex_narod"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryTextColor"/>
+                </LinearLayout>
+            </RelativeLayout>
+
             <!-- Space for scroll -->
             <Space
                 android:layout_width="match_parent"
