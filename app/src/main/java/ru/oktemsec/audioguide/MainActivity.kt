@@ -1,6 +1,8 @@
 package ru.oktemsec.audioguide
 
+import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -12,90 +14,144 @@ import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mediaPlayer: MediaPlayer
+    // Sound vars
+    private lateinit var welcomeSound: MediaPlayer
+    private lateinit var mainMenuSound: MediaPlayer
+
+    // Player widgets vars
+    private lateinit var seekBar: SeekBar
+    private lateinit var playerDuration: TextView
+    private lateinit var playerPosition: TextView
+    private lateinit var btPlay: ImageView
+    private lateinit var btPause: ImageView
+    private lateinit var btFf: ImageView
+    private lateinit var btRew: ImageView
     private val handler = Handler()
+
+    private val RESOURCE_PREFIX = "android.resource://ru.oktemsec.audioguide/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Init widgets
-        val seekBar: SeekBar = findViewById(R.id.seek_bar)
-        val playerDuration: TextView = findViewById(R.id.player_duration)
-        val playerPosition: TextView = findViewById(R.id.player_position)
-        val btPlay: ImageView = findViewById(R.id.bt_play)
-        val btPause: ImageView = findViewById(R.id.bt_pause)
-        val btFf: ImageView = findViewById(R.id.bt_ff)
-        val btRew: ImageView = findViewById(R.id.bt_rew)
+        // Init player widgets
+        seekBar = findViewById(R.id.seek_bar)
+        playerDuration = findViewById(R.id.player_duration)
+        playerPosition = findViewById(R.id.player_position)
+        btPlay = findViewById(R.id.bt_play)
+        btPause = findViewById(R.id.bt_pause)
+        btFf = findViewById(R.id.bt_ff)
+        btRew = findViewById(R.id.bt_rew)
 
         // Media player
         //https://www.narakeet.com/app/text-to-audio/
-        mediaPlayer = MediaPlayer.create(this, R.raw.welcome)
-        mediaPlayer.setVolume(0.8f, 0.8f)
+
+        welcomeSound = MediaPlayer()
+        welcomeSound.setAudioAttributes(
+            AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .build()
+        )
+        welcomeSound.setDataSource(this, Uri.parse(RESOURCE_PREFIX + R.raw.welcome))
+        mainMenuSound = MediaPlayer.create(this, R.raw.main_menu)
+        //welcomeSound.setVolume(0.8f, 0.8f)
 
         //Make sure you update Seekbar on UI thread
         val runnable: Runnable = object: Runnable {
             override fun run() {
-                seekBar.progress = mediaPlayer.currentPosition
+                if (welcomeSound.isPlaying) seekBar.progress = welcomeSound.currentPosition
+                else seekBar.progress = mainMenuSound.currentPosition
                 handler.postDelayed(this, 500)
             }
         }
 
         btPlay.setOnClickListener {
-            playSound(playerDuration, btPlay, btPause, seekBar, runnable)
+            if (welcomeSound.isPlaying) playSound(welcomeSound, playerDuration, btPlay, btPause, seekBar, runnable)
+            else playSound(mainMenuSound, playerDuration, btPlay, btPause, seekBar, runnable)
         }
 
         btPause.setOnClickListener {
             btPause.visibility = View.GONE
             btPlay.visibility = View.VISIBLE
-            mediaPlayer.pause()
+            if (welcomeSound.isPlaying) welcomeSound.pause()
+            else mainMenuSound.pause()
             handler.removeCallbacks(runnable)
         }
 
         btFf.setOnClickListener {
-            var currentPosition = mediaPlayer.currentPosition.toLong()
-            val duration = mediaPlayer.duration.toLong()
+            if (welcomeSound.isPlaying) {
+                var currentPosition = welcomeSound.currentPosition.toLong()
 
-            if (mediaPlayer.isPlaying && duration != currentPosition) {
-                currentPosition = currentPosition + 5000
-                playerPosition.text = convertFormat(currentPosition)
-                mediaPlayer.seekTo(currentPosition.toInt())
+                if (welcomeSound.isPlaying && welcomeSound.duration.toLong() != currentPosition) {
+                    currentPosition = currentPosition + 5000
+                    playerPosition.text = convertFormat(currentPosition)
+                    welcomeSound.seekTo(currentPosition.toInt())
+                }
+            }
+            else {
+                var currentPosition = mainMenuSound.currentPosition.toLong()
+
+                if (mainMenuSound.isPlaying && mainMenuSound.duration.toLong() != currentPosition) {
+                    currentPosition = currentPosition + 5000
+                    playerPosition.text = convertFormat(currentPosition)
+                    mainMenuSound.seekTo(currentPosition.toInt())
+                }
             }
         }
 
         btRew.setOnClickListener {
-            var currentPosition = mediaPlayer.currentPosition.toLong()
-            if (mediaPlayer.isPlaying && currentPosition > 5000) {
-                currentPosition = currentPosition - 5000
-                playerPosition.text = convertFormat(currentPosition)
-                mediaPlayer.seekTo(currentPosition.toInt())
+            if (welcomeSound.isPlaying) {
+                var currentPosition = welcomeSound.currentPosition.toLong()
+                if (welcomeSound.isPlaying && currentPosition > 5000) {
+                    currentPosition = currentPosition - 5000
+                    playerPosition.text = convertFormat(currentPosition)
+                    welcomeSound.seekTo(currentPosition.toInt())
+                }
+            }
+            else {
+                var currentPosition = mainMenuSound.currentPosition.toLong()
+                if (mainMenuSound.isPlaying && currentPosition > 5000) {
+                    currentPosition = currentPosition - 5000
+                    playerPosition.text = convertFormat(currentPosition)
+                    mainMenuSound.seekTo(currentPosition.toInt())
+                }
             }
         }
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser) {
-                    mediaPlayer.seekTo(progress)
+                if (welcomeSound.isPlaying) {
+                    if (fromUser) {
+                        welcomeSound.seekTo(progress)
+                    }
+                    playerPosition.text = convertFormat(welcomeSound.currentPosition.toLong())
                 }
-                playerPosition.text = convertFormat(mediaPlayer.currentPosition.toLong())
+                else {
+                    if (fromUser) {
+                        mainMenuSound.seekTo(progress)
+                    }
+                    playerPosition.text = convertFormat(mainMenuSound.currentPosition.toLong())
+                }
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
             override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
         })
 
-        mediaPlayer.setOnCompletionListener {
+        // Play on start app
+        playSound(welcomeSound, playerDuration, btPlay, btPause, seekBar, runnable)
+
+        // after welcome play Main menu sound
+        welcomeSound.setOnCompletionListener {
             btPause.visibility = View.GONE
             btPlay.visibility = View.VISIBLE
-            mediaPlayer.seekTo(0)
+            welcomeSound.seekTo(0)
+            playSound(mainMenuSound, playerDuration, btPlay, btPause, seekBar, runnable)
         }
-
-        // Play on start app
-        playSound(playerDuration, btPlay, btPause, seekBar, runnable)
-        // after welcome play Main menu sound
-        mediaPlayer.setOnCompletionListener {
-            mediaPlayer.reset()
-            mediaPlayer = MediaPlayer.create(this, R.raw.main_menu)
-            playSound(playerDuration, btPlay, btPause, seekBar, runnable)
+        mainMenuSound.setOnCompletionListener {
+            btPause.visibility = View.GONE
+            btPlay.visibility = View.VISIBLE
+            mainMenuSound.seekTo(0)
+            seekBar.progress = 0
         }
     }
 
@@ -107,15 +163,18 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun playSound(playerDuration: TextView, btnPlay: ImageView, btnPause:ImageView, seekBar: SeekBar, runnable: Runnable) {
+    private fun playSound(sound: MediaPlayer, playerDuration: TextView, btnPlay: ImageView, btnPause:ImageView, seekBar: SeekBar, runnable: Runnable) {
         // Duration
-        val duration = mediaPlayer.duration.toLong()
+        val duration = sound.duration.toLong()
         val sDuration: String = convertFormat(duration)
         playerDuration.text = sDuration
         btnPlay.visibility = View.GONE
         btnPause.visibility = View.VISIBLE
-        mediaPlayer.start()
-        seekBar.max = mediaPlayer.duration
+        sound.prepareAsync()
+        sound.setOnPreparedListener {
+            it.start()
+        }
+        seekBar.max = sound.duration
         handler.postDelayed(runnable, 0)
     }
 }
