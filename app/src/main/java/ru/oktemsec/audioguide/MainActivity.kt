@@ -1,3 +1,5 @@
+// saved on desktop/temp.kt
+
 package ru.oktemsec.audioguide
 
 import android.media.AudioAttributes
@@ -6,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
@@ -43,138 +46,42 @@ class MainActivity : AppCompatActivity() {
         btFf = findViewById(R.id.bt_ff)
         btRew = findViewById(R.id.bt_rew)
 
-        // Media player
-        //https://www.narakeet.com/app/text-to-audio/
-
-        welcomeSound = MediaPlayer()
-        welcomeSound.setAudioAttributes(
-            AudioAttributes.Builder()
-                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                .build()
+        // List of songs
+        val songsList: List<Uri> = listOf(
+            Uri.parse(RESOURCE_PREFIX + R.raw.welcome),
+            Uri.parse(RESOURCE_PREFIX + R.raw.main_menu)
         )
-        welcomeSound.setDataSource(this, Uri.parse(RESOURCE_PREFIX + R.raw.welcome))
-        mainMenuSound = MediaPlayer.create(this, R.raw.main_menu)
-        //welcomeSound.setVolume(0.8f, 0.8f)
 
-        //Make sure you update Seekbar on UI thread
-        val runnable: Runnable = object: Runnable {
-            override fun run() {
-                if (welcomeSound.isPlaying) seekBar.progress = welcomeSound.currentPosition
-                else seekBar.progress = mainMenuSound.currentPosition
-                handler.postDelayed(this, 500)
-            }
-        }
+        // Test singleton Player
+        //val player = SingletonPlayer(this, songsList, playButton = btPlay, pauseButton = btPause)
+
 
         btPlay.setOnClickListener {
-            if (welcomeSound.isPlaying) playSound(welcomeSound, playerDuration, btPlay, btPause, seekBar, runnable)
-            else playSound(mainMenuSound, playerDuration, btPlay, btPause, seekBar, runnable)
+            //player.play()
         }
 
         btPause.setOnClickListener {
-            btPause.visibility = View.GONE
-            btPlay.visibility = View.VISIBLE
-            if (welcomeSound.isPlaying) welcomeSound.pause()
-            else mainMenuSound.pause()
-            handler.removeCallbacks(runnable)
+            //player.pause()
         }
 
         btFf.setOnClickListener {
-            if (welcomeSound.isPlaying) {
-                var currentPosition = welcomeSound.currentPosition.toLong()
-
-                if (welcomeSound.isPlaying && welcomeSound.duration.toLong() != currentPosition) {
-                    currentPosition = currentPosition + 5000
-                    playerPosition.text = convertFormat(currentPosition)
-                    welcomeSound.seekTo(currentPosition.toInt())
-                }
-            }
-            else {
-                var currentPosition = mainMenuSound.currentPosition.toLong()
-
-                if (mainMenuSound.isPlaying && mainMenuSound.duration.toLong() != currentPosition) {
-                    currentPosition = currentPosition + 5000
-                    playerPosition.text = convertFormat(currentPosition)
-                    mainMenuSound.seekTo(currentPosition.toInt())
-                }
-            }
+            //player.nextSong()
         }
 
         btRew.setOnClickListener {
-            if (welcomeSound.isPlaying) {
-                var currentPosition = welcomeSound.currentPosition.toLong()
-                if (welcomeSound.isPlaying && currentPosition > 5000) {
-                    currentPosition = currentPosition - 5000
-                    playerPosition.text = convertFormat(currentPosition)
-                    welcomeSound.seekTo(currentPosition.toInt())
-                }
-            }
-            else {
-                var currentPosition = mainMenuSound.currentPosition.toLong()
-                if (mainMenuSound.isPlaying && currentPosition > 5000) {
-                    currentPosition = currentPosition - 5000
-                    playerPosition.text = convertFormat(currentPosition)
-                    mainMenuSound.seekTo(currentPosition.toInt())
-                }
-            }
+
         }
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (welcomeSound.isPlaying) {
-                    if (fromUser) {
-                        welcomeSound.seekTo(progress)
-                    }
-                    playerPosition.text = convertFormat(welcomeSound.currentPosition.toLong())
-                }
-                else {
-                    if (fromUser) {
-                        mainMenuSound.seekTo(progress)
-                    }
-                    playerPosition.text = convertFormat(mainMenuSound.currentPosition.toLong())
-                }
+
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
             override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
         })
-
-        // Play on start app
-        playSound(welcomeSound, playerDuration, btPlay, btPause, seekBar, runnable)
-
-        // after welcome play Main menu sound
-        welcomeSound.setOnCompletionListener {
-            btPause.visibility = View.GONE
-            btPlay.visibility = View.VISIBLE
-            welcomeSound.seekTo(0)
-            playSound(mainMenuSound, playerDuration, btPlay, btPause, seekBar, runnable)
-        }
-        mainMenuSound.setOnCompletionListener {
-            btPause.visibility = View.GONE
-            btPlay.visibility = View.VISIBLE
-            mainMenuSound.seekTo(0)
-            seekBar.progress = 0
-        }
-    }
-
-    private fun convertFormat(duration: Long): String {
-        return String.format(
-            "%02d:%02d",
-            TimeUnit.MILLISECONDS.toMinutes(duration),
-            TimeUnit.MILLISECONDS.toSeconds(duration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration))
-        )
-    }
-
-    private fun playSound(sound: MediaPlayer, playerDuration: TextView, btnPlay: ImageView, btnPause:ImageView, seekBar: SeekBar, runnable: Runnable) {
-        // Duration
-        val duration = sound.duration.toLong()
-        val sDuration: String = convertFormat(duration)
-        playerDuration.text = sDuration
-        btnPlay.visibility = View.GONE
-        btnPause.visibility = View.VISIBLE
-        sound.prepareAsync()
-        sound.setOnPreparedListener {
-            it.start()
-        }
-        seekBar.max = sound.duration
-        handler.postDelayed(runnable, 0)
     }
 }
+
+// Начать оптимизацию плеера по инструкциям:
+// https://rrtutors.com/tutorials/how-to-use-media-player-to-play-list-of-audio-files-in-android-studio-using-kotlin
+// https://www.javatpoint.com/kotlin-android-media-player

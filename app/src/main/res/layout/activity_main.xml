@@ -22,112 +22,139 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <!--First museum room-->
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!--Map-->
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_map1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:translationZ="1dp"/>
-                <!-- Photo and title -->
-                <LinearLayout
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryLightColor"
+                android:layout_margin="15dp"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
-                    <!-- Photo -->
+                    android:layout_height="wrap_content">
+                    <!--Map-->
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:src="@drawable/zal_alex_narod"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/zal_alex_narod"/>
-                    <!-- Title -->
-                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:translationZ="1dp"/>
+                    <!-- Photo and title -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/zal_alex_narod"
-                        android:textSize="18sp"
-                        android:textColor="@color/primaryTextColor"/>
-                </LinearLayout>
-            </RelativeLayout>
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/zal_alex_narod"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/zal_alex_narod"/>
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_alex_narod"
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryTextColor"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <!--Second museum room-->
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!--Map-->
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_map2"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:translationZ="1dp"/>
-                <!-- Photo and title -->
-                <LinearLayout
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryLightColor"
+                android:layout_margin="15dp"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
-                    <!-- Photo -->
+                    android:layout_height="wrap_content">
+                    <!--Map-->
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:src="@drawable/zal_okt_sevenyears"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/zal_okt_seven_years"/>
-                    <!-- Title -->
-                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map2"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:translationZ="1dp"/>
+                    <!-- Photo and title -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/zal_okt_seven_years"
-                        android:textSize="18sp"
-                        android:textColor="@color/primaryTextColor"/>
-                </LinearLayout>
-            </RelativeLayout>
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/zal_okt_sevenyears"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/zal_okt_seven_years"/>
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_okt_seven_years"
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryTextColor"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <!--Third museum room-->
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!--Map-->
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_map2"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:translationZ="1dp"/>
-                <!-- Photo and title -->
-                <LinearLayout
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryLightColor"
+                android:layout_margin="15dp"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
-                    <!-- Photo -->
+                    android:layout_height="wrap_content">
+                    <!--Map-->
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:src="@drawable/zal_alex_narod"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/zal_alex_narod"/>
-                    <!-- Title -->
-                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map2"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:translationZ="1dp"/>
+                    <!-- Photo and title -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/zal_alex_narod"
-                        android:textSize="18sp"
-                        android:textColor="@color/primaryTextColor"/>
-                </LinearLayout>
-            </RelativeLayout>
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/zal_okt_sevenyears"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/zal_okt_seven_years"/>
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_okt_seven_years"
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryTextColor"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <!-- Space for scroll -->
             <Space
