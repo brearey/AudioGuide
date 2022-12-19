@@ -19,6 +19,7 @@ class SingletonPlayer(context: Context, songsListIn: List<Sound>, playButton: Im
     val btPlay = playButton
     val btPause = pauseButton
     val playerTitle = playerTitle
+    val playerPosition = playerPosition
     val seekBar = seekBar
     private val handler = Handler()
     var canPlay: Boolean = false
@@ -71,8 +72,6 @@ class SingletonPlayer(context: Context, songsListIn: List<Sound>, playButton: Im
         }
         updateUI()
 
-        handler.removeCallbacks(runnable)
-
         Log.d("brearey", "call pause")
     }
 
@@ -86,7 +85,28 @@ class SingletonPlayer(context: Context, songsListIn: List<Sound>, playButton: Im
         instance.stop()
         instance.reset()
         instance.setDataSource(context, songsList[currentIndex].soundUri)
-        playerTitle.text = songsList[currentIndex].soundName
+        instance.prepareAsync()
+        instance.setOnPreparedListener {
+            it.start()
+            updateUI()
+        }
+
+        instance.setOnCompletionListener {
+            updateUI()
+        }
+        updateUI()
+    }
+
+    fun prevSong() {
+        if (currentIndex > 0) {
+            currentIndex--
+        } else if (currentIndex <= 0) {
+            currentIndex = songsList.size - 1
+        }
+        Log.d("brearey", "call next song")
+        instance.stop()
+        instance.reset()
+        instance.setDataSource(context, songsList[currentIndex].soundUri)
         instance.prepareAsync()
         instance.setOnPreparedListener {
             it.start()
@@ -110,12 +130,22 @@ class SingletonPlayer(context: Context, songsListIn: List<Sound>, playButton: Im
         }
         Log.d("brearey", "UI updated")
         Log.d("brearey", "Current idnex: $currentIndex")
+        playerTitle.text = songsList[currentIndex].soundName
+        playerPosition.text = convertFormat(instance.currentPosition.toLong())
+        seekBar.progress = instance.currentPosition
         seekBar.max = instance.duration
         Log.d("brearey", "currentPosition: ${instance.currentPosition}")
         Log.d("brearey", "duration: ${instance.duration}")
         if (instance.currentPosition >= instance.duration) {
             seekBar.progress = 0
+            playerPosition.text = convertFormat(0)
         }
+    }
+
+    fun destroy() {
+        instance.stop()
+        instance.release()
+        handler.removeCallbacks(runnable)
     }
 
     private fun startRunnable() {

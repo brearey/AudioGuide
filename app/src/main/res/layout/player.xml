@@ -49,8 +49,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/bt_rew"
-                android:src="@drawable/ic_rewind"/>
+                android:id="@+id/bt_prev"
+                android:src="@drawable/ic_prev"/>
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -65,8 +65,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/bt_ff"
-                android:src="@drawable/ic_forward"/>
+                android:id="@+id/bt_next"
+                android:src="@drawable/ic_next"/>
 
         </LinearLayout>
     </LinearLayout>

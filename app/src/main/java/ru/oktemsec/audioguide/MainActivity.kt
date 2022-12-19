@@ -2,7 +2,6 @@
 
 package ru.oktemsec.audioguide
 
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -17,10 +16,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var playerPosition: TextView
     private lateinit var btPlay: ImageView
     private lateinit var btPause: ImageView
-    private lateinit var btFf: ImageView
-    private lateinit var btRew: ImageView
+    private lateinit var btNext: ImageView
+    private lateinit var btPrev: ImageView
 
-    private val RESOURCE_PREFIX = "android.resource://ru.oktemsec.audioguide/"
+    // Player object
+    lateinit var player: SingletonPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         playerPosition = findViewById(R.id.player_position)
         btPlay = findViewById(R.id.bt_play)
         btPause = findViewById(R.id.bt_pause)
-        btFf = findViewById(R.id.bt_ff)
-        btRew = findViewById(R.id.bt_rew)
+        btNext = findViewById(R.id.bt_next)
+        btPrev = findViewById(R.id.bt_prev)
 
         // List of songs
         val songsList: List<Sound> = listOf(
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Test singleton Player
-        val player = SingletonPlayer(this, songsList, playButton = btPlay, pauseButton = btPause, seekBar = seekBar, playerPosition = playerPosition, playerTitle = playerTitle)
+        player = SingletonPlayer(this, songsList, playButton = btPlay, pauseButton = btPause, seekBar = seekBar, playerPosition = playerPosition, playerTitle = playerTitle)
 
 
         btPlay.setOnClickListener {
@@ -53,13 +53,18 @@ class MainActivity : AppCompatActivity() {
             player.pause()
         }
 
-        btFf.setOnClickListener {
+        btNext.setOnClickListener {
             player.nextSong()
         }
 
-        btRew.setOnClickListener {
-
+        btPrev.setOnClickListener {
+            player.prevSong()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player.destroy()
     }
 }
 
