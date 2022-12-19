@@ -2,11 +2,11 @@
 
 package ru.oktemsec.audioguide
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
+import androidx.cardview.widget.CardView
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +59,48 @@ class MainActivity : AppCompatActivity() {
 
         btPrev.setOnClickListener {
             player.prevSong()
+        }
+
+        // Buttons of main menu
+        val button0: CardView = findViewById(R.id.zal_istoria_obraz)
+        val button1: CardView = findViewById(R.id.zal_alex_narod)
+        val button2: CardView = findViewById(R.id.zal_class_soviet)
+        val button3: CardView = findViewById(R.id.zal_school_in_soviet)
+        val button4: CardView = findViewById(R.id.zal_new_history_school)
+        val button5: CardView = findViewById(R.id.zal_kraeved_ugolok)
+
+        // list of expositions
+        val expositionsList: List<Exposition> = Repository().expositionsList
+        // Set listener
+        button0.setOnClickListener {
+            val intent = Intent(this, ExpositionActivity::class.java)
+            intent.putExtra("index", 0)
+            startActivity(intent)
+        }
+        button1.setOnClickListener {
+            val intent = Intent(this, ExpositionActivity::class.java)
+            intent.putExtra("index", 1)
+            startActivity(intent)
+        }
+        button2.setOnClickListener {
+            val intent = Intent(this, ExpositionActivity::class.java)
+            intent.putExtra("index", 2)
+            startActivity(intent)
+        }
+        button3.setOnClickListener {
+            val intent = Intent(this, ExpositionActivity::class.java)
+            intent.putExtra("index", 3)
+            startActivity(intent)
+        }
+        button4.setOnClickListener {
+            val intent = Intent(this, ExpositionActivity::class.java)
+            intent.putExtra("index", 4)
+            startActivity(intent)
+        }
+        button5.setOnClickListener {
+            val intent = Intent(this, ExpositionActivity::class.java)
+            intent.putExtra("index", 5)
+            startActivity(intent)
         }
     }
 

@@ -23,6 +23,55 @@
             android:orientation="vertical">
             <!--First museum room-->
             <androidx.cardview.widget.CardView
+                android:id="@+id/zal_istoria_obraz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryLightColor"
+                android:layout_margin="15dp"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
+                <RelativeLayout
+                    android:id="@+id/test_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Map-->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/map"
+                        android:translationZ="1dp"/>
+                    <!-- Photo and title -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/zal_istoria_obraz"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/zal_istoria_obraz"/>
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_istoria_obraz"
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryTextColor"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--Second museum room-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/zal_alex_narod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primaryLightColor"
@@ -40,13 +89,14 @@
                         android:src="@drawable/ic_map1"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
-                        android:translationZ="1dp"/>
+                        android:translationZ="1dp"
+                        android:contentDescription="@string/map"/>
                     <!-- Photo and title -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginBottom="20dp">
+                        android:layout_marginBottom="8dp">
                         <!-- Photo -->
                         <ImageView
                             android:layout_width="match_parent"
@@ -66,8 +116,9 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-            <!--Second museum room-->
+            <!--Third museum room-->
             <androidx.cardview.widget.CardView
+                android:id="@+id/zal_class_soviet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primaryLightColor"
@@ -82,37 +133,39 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map2"
+                        android:src="@drawable/ic_map1"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
-                        android:translationZ="1dp"/>
+                        android:translationZ="1dp"
+                        android:contentDescription="@string/map"/>
                     <!-- Photo and title -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginBottom="20dp">
+                        android:layout_marginBottom="8dp">
                         <!-- Photo -->
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
-                            android:src="@drawable/zal_okt_sevenyears"
+                            android:src="@drawable/zal_class_soviet"
                             android:scaleType="centerCrop"
-                            android:contentDescription="@string/zal_okt_seven_years"/>
+                            android:contentDescription="@string/zal_class_soviet"/>
                         <!-- Title -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/zal_okt_seven_years"
+                            android:text="@string/zal_class_soviet"
                             android:textSize="18sp"
                             android:textColor="@color/primaryTextColor"/>
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-            <!--Third museum room-->
+            <!--Fourth museum room-->
             <androidx.cardview.widget.CardView
+                android:id="@+id/zal_school_in_soviet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primaryLightColor"
@@ -127,29 +180,124 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map2"
+                        android:src="@drawable/ic_map1"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
-                        android:translationZ="1dp"/>
+                        android:translationZ="1dp"
+                        android:contentDescription="@string/map"/>
                     <!-- Photo and title -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginBottom="20dp">
+                        android:layout_marginBottom="8dp">
                         <!-- Photo -->
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
-                            android:src="@drawable/zal_okt_sevenyears"
+                            android:src="@drawable/zal_school_in_soviet"
                             android:scaleType="centerCrop"
-                            android:contentDescription="@string/zal_okt_seven_years"/>
+                            android:contentDescription="@string/zal_school_in_soviet"/>
                         <!-- Title -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/zal_okt_seven_years"
+                            android:text="@string/zal_school_in_soviet"
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryTextColor"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--Fifth museum room-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/zal_new_history_school"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryLightColor"
+                android:layout_margin="15dp"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Map-->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:translationZ="1dp"
+                        android:contentDescription="@string/map"/>
+                    <!-- Photo and title -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/zal_new_history_school"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/zal_new_history_school"/>
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_new_history_school"
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryTextColor"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--Sixth museum room-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/zal_kraeved_ugolok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryLightColor"
+                android:layout_margin="15dp"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Map-->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:translationZ="1dp"
+                        android:contentDescription="@string/map"/>
+                    <!-- Photo and title -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/zal_kraeved_ugolok"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/zal_kraeved_ugolok"/>
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_kraeved_ugolok"
                             android:textSize="18sp"
                             android:textColor="@color/primaryTextColor"/>
                     </LinearLayout>
@@ -159,7 +307,7 @@
             <!-- Space for scroll -->
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
+                android:layout_height="120dp"/>
 
         </LinearLayout>
 
@@ -170,6 +318,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

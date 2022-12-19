@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Музей образования</string>
     <string name="player_time_zero">00:00</string>
-    <string name="zal_alex_narod">Алексеевское народное училище\n1874–1917</string>
+
+    <string name="zal_istoria_obraz">История образования\nХангаласского улуса</string>
+    <string name="zal_alex_narod">Алексеевское народное училище</string>
+    <string name="zal_class_soviet">Класс советского периода</string>
+    <string name="zal_school_in_soviet">Школа в советское время</string>
+    <string name="zal_new_history_school">Новая история школы</string>
+    <string name="zal_kraeved_ugolok">Краеведческий уголок</string>
+
     <string name="zal_okt_seven_years">Октемская семилетняя школа</string>
     <string name="welcome">Добро пожаловать</string>
+    <string name="map">map</string>
 </resources>
