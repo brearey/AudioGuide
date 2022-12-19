@@ -4,19 +4,26 @@ import android.content.Context
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.SeekBar
+import android.widget.TextView
 import java.util.concurrent.TimeUnit
 
-class SingletonPlayer(context: Context, songsListIn: List<Uri>, playButton: ImageView, pauseButton: ImageView) {
+class SingletonPlayer(context: Context, songsListIn: List<Sound>, playButton: ImageView, pauseButton: ImageView, seekBar: SeekBar, playerPosition: TextView, playerTitle: TextView) {
     private var currentIndex = 0
     val instance: MediaPlayer
     val songsList = songsListIn
     val btPlay = playButton
     val btPause = pauseButton
+    val playerTitle = playerTitle
+    val seekBar = seekBar
+    private val handler = Handler()
     var canPlay: Boolean = false
     val context = context
+    lateinit var runnable: Runnable
 
     init {
         instance = MediaPlayer()
@@ -25,11 +32,22 @@ class SingletonPlayer(context: Context, songsListIn: List<Uri>, playButton: Imag
                 .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                 .build()
         )
-        instance.setDataSource(context, songsList[currentIndex])
+        instance.setDataSource(context, songsList[currentIndex].soundUri)
+        playerTitle.text = songsList[currentIndex].soundName
         instance.prepareAsync()
         instance.setOnPreparedListener {
             canPlay = true
         }
+
+        startRunnable()
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                playerPosition.text = convertFormat(instance.currentPosition.toLong())
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
+        })
 
         Log.d("brearey", "Init: instance: $instance")
     }
@@ -39,6 +57,12 @@ class SingletonPlayer(context: Context, songsListIn: List<Uri>, playButton: Imag
         updateUI()
         Log.d("brearey", "Can play: $canPlay")
         Log.d("brearey", "call play")
+
+        handler.postDelayed(runnable, 0)
+
+        instance.setOnCompletionListener {
+            updateUI()
+        }
     }
 
     fun pause() {
@@ -46,24 +70,33 @@ class SingletonPlayer(context: Context, songsListIn: List<Uri>, playButton: Imag
             instance.pause()
         }
         updateUI()
+
+        handler.removeCallbacks(runnable)
+
         Log.d("brearey", "call pause")
     }
 
     fun nextSong() {
         if (currentIndex <  songsList.size - 1) {
             currentIndex++
-        } else if (currentIndex >= songsList.size) {
+        } else if (currentIndex <= songsList.size - 1) {
             currentIndex = 0
         }
         Log.d("brearey", "call next song")
         instance.stop()
         instance.reset()
-        instance.setDataSource(context, songsList[currentIndex])
+        instance.setDataSource(context, songsList[currentIndex].soundUri)
+        playerTitle.text = songsList[currentIndex].soundName
         instance.prepareAsync()
         instance.setOnPreparedListener {
             it.start()
             updateUI()
         }
+
+        instance.setOnCompletionListener {
+            updateUI()
+        }
+        updateUI()
     }
 
     fun updateUI() {
@@ -76,9 +109,26 @@ class SingletonPlayer(context: Context, songsListIn: List<Uri>, playButton: Imag
             btPause.visibility = View.GONE
         }
         Log.d("brearey", "UI updated")
+        Log.d("brearey", "Current idnex: $currentIndex")
+        seekBar.max = instance.duration
+        Log.d("brearey", "currentPosition: ${instance.currentPosition}")
+        Log.d("brearey", "duration: ${instance.duration}")
+        if (instance.currentPosition >= instance.duration) {
+            seekBar.progress = 0
+        }
     }
 
-    private fun convertFormat(duration: Long): String {
+    private fun startRunnable() {
+        //Make sure you update Seekbar on UI thread
+        runnable = object: Runnable {
+            override fun run() {
+                if (instance.isPlaying) seekBar.progress = instance.currentPosition
+                handler.postDelayed(this, 500)
+            }
+        }
+    }
+
+    fun convertFormat(duration: Long): String {
         return String.format(
             "%02d:%02d",
             TimeUnit.MILLISECONDS.toMinutes(duration),

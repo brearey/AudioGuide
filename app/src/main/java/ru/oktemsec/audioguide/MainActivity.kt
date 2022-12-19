@@ -2,34 +2,23 @@
 
 package ru.oktemsec.audioguide
 
-import android.media.AudioAttributes
-import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
-import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    // Sound vars
-    private lateinit var welcomeSound: MediaPlayer
-    private lateinit var mainMenuSound: MediaPlayer
-
     // Player widgets vars
     private lateinit var seekBar: SeekBar
-    private lateinit var playerDuration: TextView
+    private lateinit var playerTitle: TextView
     private lateinit var playerPosition: TextView
     private lateinit var btPlay: ImageView
     private lateinit var btPause: ImageView
     private lateinit var btFf: ImageView
     private lateinit var btRew: ImageView
-    private val handler = Handler()
 
     private val RESOURCE_PREFIX = "android.resource://ru.oktemsec.audioguide/"
 
@@ -39,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         // Init player widgets
         seekBar = findViewById(R.id.seek_bar)
-        playerDuration = findViewById(R.id.player_duration)
+        playerTitle = findViewById(R.id.player_title)
         playerPosition = findViewById(R.id.player_position)
         btPlay = findViewById(R.id.bt_play)
         btPause = findViewById(R.id.bt_pause)
@@ -47,38 +36,30 @@ class MainActivity : AppCompatActivity() {
         btRew = findViewById(R.id.bt_rew)
 
         // List of songs
-        val songsList: List<Uri> = listOf(
-            Uri.parse(RESOURCE_PREFIX + R.raw.welcome),
-            Uri.parse(RESOURCE_PREFIX + R.raw.main_menu)
+        val songsList: List<Sound> = listOf(
+            Sound("Добро пожаловать", R.raw.welcome),
+            Sound("Главное меню", R.raw.main_menu),
         )
 
         // Test singleton Player
-        //val player = SingletonPlayer(this, songsList, playButton = btPlay, pauseButton = btPause)
+        val player = SingletonPlayer(this, songsList, playButton = btPlay, pauseButton = btPause, seekBar = seekBar, playerPosition = playerPosition, playerTitle = playerTitle)
 
 
         btPlay.setOnClickListener {
-            //player.play()
+            player.play()
         }
 
         btPause.setOnClickListener {
-            //player.pause()
+            player.pause()
         }
 
         btFf.setOnClickListener {
-            //player.nextSong()
+            player.nextSong()
         }
 
         btRew.setOnClickListener {
 
         }
-
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
-        })
     }
 }
 
