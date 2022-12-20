@@ -1,3 +1,3 @@
 package ru.oktemsec.audioguide
 
-data class Exposition(val name: Int, val imageResource: Int)
+data class Exposition(val name: Int, val imageResource: Int, val description: String)

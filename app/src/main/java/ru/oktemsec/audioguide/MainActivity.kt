@@ -71,7 +71,8 @@ class MainActivity : AppCompatActivity() {
 
         // list of expositions
         val expositionsList: List<Exposition> = Repository().expositionsList
-        // Set listener
+
+        // Set listener all buttons and goto exposition activity with extras
         button0.setOnClickListener {
             val intent = Intent(this, ExpositionActivity::class.java)
             intent.putExtra("index", 0)
@@ -102,6 +103,21 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("index", 5)
             startActivity(intent)
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        player.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        player.play()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        player.pause()
     }
 
     override fun onDestroy() {
