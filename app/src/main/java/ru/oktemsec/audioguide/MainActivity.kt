@@ -1,5 +1,3 @@
-// saved on desktop/temp.kt
-
 package ru.oktemsec.audioguide
 
 import android.content.Intent
@@ -36,13 +34,13 @@ class MainActivity : AppCompatActivity() {
         btPrev = findViewById(R.id.bt_prev)
 
         // List of songs
-        val songsList: List<Sound> = listOf(
+        val songsListMainMenu: List<Sound> = listOf(
             Sound("Добро пожаловать", R.raw.welcome),
             Sound("Главное меню", R.raw.main_menu),
         )
 
         // Test singleton Player
-        player = SingletonPlayer(this, songsList, playButton = btPlay, pauseButton = btPause, seekBar = seekBar, playerPosition = playerPosition, playerTitle = playerTitle)
+        player = SingletonPlayer(this, songsListMainMenu, playButton = btPlay, pauseButton = btPause, seekBar = seekBar, playerPosition = playerPosition, playerTitle = playerTitle)
 
 
         btPlay.setOnClickListener {
@@ -60,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         btPrev.setOnClickListener {
             player.prevSong()
         }
+        // Player end
 
         // Buttons of main menu
         val button0: CardView = findViewById(R.id.zal_istoria_obraz)
@@ -112,7 +111,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        player.play()
     }
 
     override fun onStop() {

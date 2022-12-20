@@ -1,5 +1,6 @@
 package ru.oktemsec.audioguide
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -19,6 +20,7 @@ class ExpositionActivity : AppCompatActivity() {
         val expositionNameResource = expositionsList[intent.getIntExtra("index", expositionsList.size - 1)].name
         val expositionImageResource = expositionsList[intent.getIntExtra("index", expositionsList.size - 1)].imageResource
         val expositionDescription = expositionsList[intent.getIntExtra("index", expositionsList.size - 1)].description
+        val soundsList:List<Sound> = expositionsList[intent.getIntExtra("index", expositionsList.size - 1)].soundsList
 
         expositionImageView.setImageResource(expositionImageResource)
         expositionDescTextView.text = expositionDescription
