@@ -12,6 +12,6 @@
     <string name="exposition_desc">описание экспозиции в разработке</string>
 
     <string name="zal_okt_seven_years">Октемская семилетняя школа</string>
-    <string name="welcome">Добро пожаловать</string>
+    <string name="player_title">Заголовок</string>
     <string name="map">map</string>
 </resources>

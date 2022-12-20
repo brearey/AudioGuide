@@ -68,9 +68,6 @@ class MainActivity : AppCompatActivity() {
         val button4: CardView = findViewById(R.id.zal_new_history_school)
         val button5: CardView = findViewById(R.id.zal_kraeved_ugolok)
 
-        // list of expositions
-        val expositionsList: List<Exposition> = Repository().expositionsList
-
         // Set listener all buttons and goto exposition activity with extras
         button0.setOnClickListener {
             val intent = Intent(this, ExpositionActivity::class.java)

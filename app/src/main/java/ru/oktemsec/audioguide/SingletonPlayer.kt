@@ -49,6 +49,7 @@ class SingletonPlayer(context: Context, songsListIn: List<Sound>, playButton: Im
             override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
             override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
         })
+        seekBar.isEnabled = false
 
         Log.d("brearey", "Init: instance: $instance")
     }

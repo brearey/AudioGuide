@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
+    android:background="@color/primaryLightColor"
     tools:context=".ExpositionActivity">
 
     <ScrollView
@@ -40,8 +41,23 @@
                 android:textColor="@color/primaryTextColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+            <!-- Space for scroll -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="140dp"/>
         </LinearLayout>
     </ScrollView>
+
+    <include
+        layout="@layout/player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
