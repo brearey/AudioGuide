@@ -18,12 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
+
+            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
                 android:id="@+id/exposition_image"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/zal_alex_narod" />
+                android:layout_height="400dp" />
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Описание экспозиции:"

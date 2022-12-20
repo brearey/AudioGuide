@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
+import com.davemorrissey.labs.subscaleview.ImageSource
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 
 class ExpositionActivity : AppCompatActivity() {
 
@@ -25,7 +27,7 @@ class ExpositionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_exposition)
 
         // Widgets vars
-        val expositionImageView = findViewById<ImageView>(R.id.exposition_image)
+        val expositionImageView = findViewById<SubsamplingScaleImageView>(R.id.exposition_image)
         val expositionDescTextView = findViewById<TextView>(R.id.exposition_description)
 
         //Get exposition from intent extras
@@ -35,7 +37,7 @@ class ExpositionActivity : AppCompatActivity() {
         val expositionDescription = expositionsList[intent.getIntExtra("index", expositionsList.size - 1)].description
         val soundsList:List<Sound> = expositionsList[intent.getIntExtra("index", expositionsList.size - 1)].soundsList
 
-        expositionImageView.setImageResource(expositionImageResource)
+        expositionImageView.setImage(ImageSource.resource(expositionImageResource))
         expositionDescTextView.text = expositionDescription
 
         // Toolbar title and back button
