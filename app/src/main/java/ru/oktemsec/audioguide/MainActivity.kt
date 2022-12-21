@@ -99,6 +99,26 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("index", 5)
             startActivity(intent)
         }
+
+        // maps widgets
+        val map1: ImageView = findViewById(R.id.map1)
+        val map2: ImageView = findViewById(R.id.map2)
+        val map3: ImageView = findViewById(R.id.map3)
+        val map4: ImageView = findViewById(R.id.map4)
+        val map5: ImageView = findViewById(R.id.map5)
+        val map6: ImageView = findViewById(R.id.map6)
+
+        // maps list
+        val mapsList: List<ImageView> = listOf(
+            map1, map2, map3, map4, map5, map6
+        )
+
+        // maps click listener
+        mapsList.forEach {
+            it.setOnClickListener {
+                startActivity(Intent(this, MapActivity::class.java))
+            }
+        }
     }
 
     override fun onPause() {

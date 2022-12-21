@@ -37,6 +37,7 @@
                     android:layout_height="wrap_content">
                     <!--Map-->
                     <ImageView
+                        android:id="@+id/map1"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_map1"
@@ -84,9 +85,10 @@
                     android:layout_height="wrap_content">
                     <!--Map-->
                     <ImageView
+                        android:id="@+id/map2"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map1"
+                        android:src="@drawable/ic_map2"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:translationZ="1dp"
@@ -131,9 +133,10 @@
                     android:layout_height="wrap_content">
                     <!--Map-->
                     <ImageView
+                        android:id="@+id/map3"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map1"
+                        android:src="@drawable/ic_map3"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:translationZ="1dp"
@@ -178,9 +181,10 @@
                     android:layout_height="wrap_content">
                     <!--Map-->
                     <ImageView
+                        android:id="@+id/map4"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map1"
+                        android:src="@drawable/ic_map4"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:translationZ="1dp"
@@ -225,9 +229,10 @@
                     android:layout_height="wrap_content">
                     <!--Map-->
                     <ImageView
+                        android:id="@+id/map5"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map1"
+                        android:src="@drawable/ic_map5"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:translationZ="1dp"
@@ -272,9 +277,10 @@
                     android:layout_height="wrap_content">
                     <!--Map-->
                     <ImageView
+                        android:id="@+id/map6"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_map1"
+                        android:src="@drawable/ic_map6"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:translationZ="1dp"
