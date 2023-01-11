@@ -43,4 +43,10 @@ dependencies {
 
     // Scalable image view
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+
+    // For test okhttp
+    // define any required OkHttp artifacts without version
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
 }
