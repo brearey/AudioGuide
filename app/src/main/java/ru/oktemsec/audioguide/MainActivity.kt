@@ -1,10 +1,14 @@
 package ru.oktemsec.audioguide
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanIntentResult
+import ru.oktemsec.audioguide.qrscanner.ScannerHandler
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btPause: ImageView
     private lateinit var btNext: ImageView
     private lateinit var btPrev: ImageView
+
+    //qr scanner
+    private lateinit var scanButton: ImageButton
 
     // Player object
     lateinit var player: SingletonPlayer
@@ -32,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         btPause = findViewById(R.id.bt_pause)
         btNext = findViewById(R.id.bt_next)
         btPrev = findViewById(R.id.bt_prev)
+        // qr scanner
+        scanButton = findViewById(R.id.scan_button)
 
         // List of songs
         val songsListMainMenu: List<Sound> = listOf(
@@ -40,7 +49,15 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Test singleton Player
-        player = SingletonPlayer(this, songsListMainMenu, playButton = btPlay, pauseButton = btPause, seekBar = seekBar, playerPosition = playerPosition, playerTitle = playerTitle)
+        player = SingletonPlayer(
+            this,
+            songsListMainMenu,
+            playButton = btPlay,
+            pauseButton = btPause,
+            seekBar = seekBar,
+            playerPosition = playerPosition,
+            playerTitle = playerTitle
+        )
 
 
         btPlay.setOnClickListener {
@@ -118,6 +135,21 @@ class MainActivity : AppCompatActivity() {
             it.setOnClickListener {
                 startActivity(Intent(this, MapActivity::class.java))
             }
+        }
+        // qr scanner
+        val barcodeLauncher = registerForActivityResult( ScanContract()) { result: ScanIntentResult ->
+            if (result.contents == null) {
+                Toast.makeText(this@MainActivity, "Сканирование отменено", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(
+                    this@MainActivity,
+                    "Отсканировано: " + result.contents,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+        scanButton.setOnClickListener {
+            ScannerHandler.scanCode(barcodeLauncher)
         }
     }
 
