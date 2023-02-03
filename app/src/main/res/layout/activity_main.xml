@@ -7,29 +7,38 @@
     android:background="@color/primaryLightColor"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <HorizontalScrollView
         android:id="@+id/horizontal_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:scrollbars="none"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/scan_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:drawableStart="@drawable/ic_baseline_qr_code_scanner_24"
-                android:text="Сканировать"
-                android:textSize="12sp"
+                android:drawableLeft="@drawable/ic_baseline_qr_code_scanner_24"
+                android:text="@string/scan"
                 android:layout_marginEnd="8dp"/>
+            <Button
+                android:id="@+id/quest_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:text="@string/quest_game"
+                android:layout_marginEnd="8dp" />
         </LinearLayout>
-    </ScrollView>
+    </HorizontalScrollView>
 
     <ScrollView
         android:id="@+id/expositions_list"
@@ -45,10 +54,54 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <!--First museum room-->
-            <Space
+            <androidx.cardview.widget.CardView
+                android:id="@+id/zal_istoria_obraz"
                 android:layout_width="match_parent"
-                android:layout_height="120dp" />
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/primaryLightColor"
+                android:translationZ="4dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp">
 
+                <RelativeLayout
+                    android:id="@+id/test_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Map-->
+                    <ImageView
+                        android:id="@+id/map1"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="@string/map"
+                        android:src="@drawable/ic_map1"
+                        android:translationZ="1dp" />
+                    <!-- Photo and title -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical">
+                        <!-- Photo -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:contentDescription="@string/zal_istoria_obraz"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/zal_istoria_obraz" />
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/zal_istoria_obraz"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
             <!--Second museum room-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/zal_alex_narod"
@@ -295,55 +348,9 @@
             </androidx.cardview.widget.CardView>
 
             <!-- Space for scroll -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/zal_istoria_obraz"
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:backgroundTint="@color/primaryLightColor"
-                android:translationZ="4dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="0dp">
-
-                <RelativeLayout
-                    android:id="@+id/test_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <!--Map-->
-                    <ImageView
-                        android:id="@+id/map1"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="20dp"
-                        android:contentDescription="@string/map"
-                        android:src="@drawable/ic_map1"
-                        android:translationZ="1dp" />
-                    <!-- Photo and title -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:orientation="vertical">
-                        <!-- Photo -->
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:contentDescription="@string/zal_istoria_obraz"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/zal_istoria_obraz" />
-                        <!-- Title -->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/zal_istoria_obraz"
-                            android:textColor="@color/primaryTextColor"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
+                android:layout_height="120dp" />
         </LinearLayout>
 
     </ScrollView>
