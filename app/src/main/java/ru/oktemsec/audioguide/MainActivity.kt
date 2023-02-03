@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btPrev: ImageView
 
     //qr scanner
-    private lateinit var scanButton: ImageButton
+    private lateinit var scanButton: Button
 
     // Player object
     lateinit var player: SingletonPlayer

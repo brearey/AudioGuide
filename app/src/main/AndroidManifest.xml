@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.oktemsec.audioguide">
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -41,7 +42,5 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"/>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
