@@ -16,4 +16,6 @@
     <string name="map">map</string>
     <string name="scan">Сканировать</string>
     <string name="quest_game">Квест игра</string>
+    <string name="quest_game_rules">Правила игры</string>
+    <string name="exhibit_description">Описание экспоната</string>
 </resources>
