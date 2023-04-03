@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     android:background="@color/primaryLightColor"
-    tools:context=".ExpositionActivity">
-
+    tools:context=".exhibit.ExhibitActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,22 +18,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-                android:id="@+id/exposition_image"
+            <ImageView
+                android:id="@+id/exhibit_image"
                 android:layout_width="match_parent"
-                android:layout_height="400dp" />
+                android:layout_height="300dp" />
             <TextView
+                android:id="@+id/exhibit_name"
                 android:layout_marginTop="8dp"
-                android:text="Описание экспозиции: "
+                android:text="Название экспоната: "
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/primaryTextColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/exposition_description"
+                android:id="@+id/exhibit_description"
                 android:layout_marginTop="8dp"
-                android:text="@string/exposition_desc"
+                android:text="@string/exhibit_desc"
                 android:justificationMode="inter_word"
                 android:textSize="18sp"
                 android:textColor="@color/primaryTextColor"
@@ -57,6 +57,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

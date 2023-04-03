@@ -52,4 +52,7 @@ dependencies {
 
     //QR scanner
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    //For load images of exhibits from museum site
+    implementation 'com.squareup.picasso:picasso:2.8'
 }

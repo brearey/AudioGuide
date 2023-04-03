@@ -12,8 +12,9 @@
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/drawable/news_avd_v02.xml" value="0.3165" />
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/drawable/splashscreen.xml" value="0.3165" />
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout-v26/activity_exposition.xml" value="0.5456410256410257" />
+        <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_exhibit.xml" value="0.5541666666666667" />
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_exposition.xml" value="0.5" />
-        <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_main.xml" value="0.7394023627519111" />
+        <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_main.xml" value="0.32038542607648296" />
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_map.xml" value="0.5541666666666667" />
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_qrscanner.xml" value="0.5541666666666667" />
         <entry key="..\:/KotlinPro/AudioGuide/app/src/main/res/layout/activity_quest.xml" value="0.33" />
@@ -21,7 +22,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

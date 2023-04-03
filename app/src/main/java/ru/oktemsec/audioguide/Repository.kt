@@ -1,5 +1,7 @@
 package ru.oktemsec.audioguide
 
+import ru.oktemsec.audioguide.exhibit.Exhibit
+
 class Repository {
     val expositionsList: List<Exposition> = listOf(
             Exposition(
@@ -56,5 +58,10 @@ class Repository {
                     Sound("Главное меню", R.raw.main_menu),
                 )
             ),
+    )
+
+    val exhibitLists: List<Exhibit> = listOf(
+        Exhibit("https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#redflag", "Красное знамя", "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/11/%D0%97%D0%BD%D0%B0%D0%BC%D1%8F-1024x891.jpg", "Ученическая бригада по заготовке кормов для общественного скота в годы войны становилась победителем в республиканском  социалистическом соревновании и была награждена Красным Знаменем ОК ВЛКСМ, наркомата просвещения и наркомата земледелия ЯАССР. Это Красное Знамя, как свидетельство трудового вклада школьников в Победу, хранится в этом зале."),
+        Exhibit("https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#tuos", "Коробка вышитая бисером", "https://музейоброктем.рф/wp-content/uploads/2022/11/%D0%A2%D1%83%D0%BE%D1%81.gif", "Береста, ивовые прутья, конский волос, бисер. Высота 15 см , диаметр 18 см. Предположительно, конец 19 века. Автор неизвестен. Экспонат передан в дар музею  Григорьевой Г.К."),
     )
 }

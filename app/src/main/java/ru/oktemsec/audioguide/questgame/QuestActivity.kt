@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.oktemsec.audioguide.R
 
-const val TITLE = "Квест игра"
-
 class QuestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,5 +13,9 @@ class QuestActivity : AppCompatActivity() {
         // Toolbar title and back button
         title = TITLE
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    companion object {
+        const val TITLE = "Квест игра"
     }
 }

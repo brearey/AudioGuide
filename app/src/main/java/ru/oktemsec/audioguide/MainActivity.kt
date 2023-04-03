@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
+import ru.oktemsec.audioguide.exhibit.ExhibitActivity
 import ru.oktemsec.audioguide.qrscanner.ScannerHandler
 
 
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     // Player object
     lateinit var player: SingletonPlayer
+
+    // Repository for open the exhibit
+    private lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             Sound("Главное меню", R.raw.main_menu),
         )
 
-        // Test singleton Player
+        // Singleton Player
         player = SingletonPlayer(
             this,
             songsListMainMenu,
@@ -136,16 +140,20 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, MapActivity::class.java))
             }
         }
-        // qr scanner
+        // qr scanner callback
+        // Repository for open the exhibit
+        repository = Repository()
         val barcodeLauncher = registerForActivityResult( ScanContract()) { result: ScanIntentResult ->
             if (result.contents == null) {
                 Toast.makeText(this@MainActivity, "Сканирование отменено", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Отсканировано: " + result.contents,
-                    Toast.LENGTH_LONG
-                ).show()
+                repository.exhibitLists.forEachIndexed() {index, exhibit ->
+                    if (exhibit.url == result.contents) {
+                        val intent = Intent(this, ExhibitActivity::class.java)
+                        intent.putExtra("index", index)
+                        startActivity(intent)
+                    }
+                }
             }
         }
         scanButton.setOnClickListener {
