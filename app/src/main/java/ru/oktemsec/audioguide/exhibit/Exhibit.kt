@@ -9,4 +9,5 @@ data class Exhibit(
     val name: String,
     val imageUrl: String?,
     val description: String,
-    )
+    val mystery: String,
+)
