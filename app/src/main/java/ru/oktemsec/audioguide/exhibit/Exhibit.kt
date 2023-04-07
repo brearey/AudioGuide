@@ -7,6 +7,6 @@ import java.net.URI
 data class Exhibit(
     val url: String,
     val name: String,
-    val imageUrl: String,
+    val imageUrl: String?,
     val description: String,
     )

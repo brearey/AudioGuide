@@ -27,6 +27,6 @@ class ExhibitActivity : AppCompatActivity() {
         exhibitDescTV.text = exhibit.description
 
         //set image with Picasso
-        Picasso.get().load(exhibit.imageUrl).into(exhibitImageView);
+        Picasso.get().load(exhibit.imageUrl).into(exhibitImageView)
     }
 }
