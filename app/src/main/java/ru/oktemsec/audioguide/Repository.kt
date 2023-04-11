@@ -115,147 +115,147 @@ class Repository {
 //            name = "Быт советской семьи",
 //            imageUrl = null,
 //            description = "В экспозиции выставлены самовары, чайный сервиз, стаканы с подстаканниками. Бытовые  электрические приборы: телевизор, проигрыватель, кассетный магнитофон, транзистор, настенное радио стиральная машина «Малышок», сепаратор и др. Интерес представляет фотолаборатория, принадлежавшая учительской семье.",
-//            mystery = ""
+//            mystery = "Экспозиция. Вещи которые были в каждом доме в советское время"
 //        ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#popov",
             name = "Г.А. Попов — инициатор исторического образования в Якутии",
             imageUrl = "https://музейоброктем.рф/wp-content/uploads/2022/12/%D0%9F%D0%BE%D0%BF%D0%BE%D0%B2.jpeg",
             description = "Стенд раскрывает перед посетителями музея жизнь и деятельность первого ученого — краеведа, историка Г.А.Попова (1887 — 1942 гг.).  Родился 25 ноября 1887 г. в Октемском наслеге.   Выставлены книги из собрания сочинений Г.А. Попова в 8 томах.",
-            mystery = ""
+            mystery = "Кто инициатор исторического образования в Якутии?"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#lenin",
             name = "Бюст Ленин на броневике",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD-%D0%BD%D0%B0-%D0%B1%D1%80%D0%BE%D0%BD%D0%B5%D0%B2%D0%B8%D0%BA%D0%B5.jpeg",
             description = "Материал — силумин, СССР 70-80г., з-д «Монументскульптура», г. Ленинград. Даритель: Федотова Софья Поликарповна",
-            mystery = ""
+            mystery = "Русский революционер на броневике"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#barograph",
             name = "Барограф анероидный метеорологический М-22А",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/%D0%91%D0%B0%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D1%84-%D0%B0%D0%BD%D0%B5%D1%80%D0%BE%D0%B8%D0%B4%D0%BD%D1%8B%D0%B9.jpeg",
             description = "Барограф анероидный М-22А предназначен для графической регистрации величин атмосферного давления в течение заданного интервала времени внутри помещения или снаружи.",
-            mystery = ""
+            mystery = "Предназначен для графической регистрации величин атмосферного давления"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#burgle-drum",
             name = "Пионерский горн и барабан",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.08.jpeg",
             description = "Музыкальные инструменты, традиционно сопровождающие пионеров в их деятельность и «озвучивающие» пионерские дела. Сигналы горна и дробь барабана помогают пионерам проще узнать, что нужно сделать, сориентироваться в режиме дня, жизни коллектива.",
-            mystery = ""
+            mystery = "Музыкальные инструменты пионеров"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#model",
             name = "Модель действующая Золотниковое парораспределение паровой машины",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.07-1.jpeg",
             description = "На основании установлены блок паровой машины с золотниковой коробкой (парораспределитель), выполненные в разрезе, и маховое колесо, насаженное на вал машины. Золотник предназначен для закрывания и открывания паровпускных каналов цилиндра машины и приводится в возвратно-поступательное движение с помощью эксцентрика, насаженного на вал. Пар через парораспределитель поступает в цилиндр машины и давит на поршень, вызывая его движение, которое передается на вал машины и далее на движущиеся колеса",
-            mystery = ""
+            mystery = "Модель паровой машины"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#watch",
             name = "Часы-фонарь «Янтарь», настенные советские",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.08-1.jpeg",
             description = "",
-            mystery = ""
+            mystery = "Что показывает время, да еще и светит"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#tableware",
             name = "Мельхиоровая посуда эпохи СССР. Сахарницы, молочники, заварники",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.09-1.jpeg",
             description = "",
-            mystery = ""
+            mystery = "Сахарницы, молочники, заварники времен СССР"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#sugarbrowl",
             name = "Сахарница",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.09.jpeg",
             description = "Синее стекло. Мельхиор. СССР",
-            mystery = ""
+            mystery = "Посуда из синего стекла"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#karlmarx",
             name = "Бюст. Карл Маркс",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.10-1.jpeg",
             description = "Силумин. СССР 70-80 -е гг. Даритель: Максимова Валентина Михайловна",
-            mystery = ""
+            mystery = "Немецкий философ, социолог, экономист, писатель, поэт, политический журналист, лингвист, общественный деятель, историк"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#pushkin",
-            name = "Статуэтка Пушкиин на скамейке",
+            name = "Статуэтка Пушкин на скамейке",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.09-2.jpeg",
             description = "Уменьшенная копия памятника в лицейском саду. Даритель: Иннокентьева В.",
-            mystery = ""
+            mystery = "Русский поэт, драматург и прозаик, заложивший основы русского реалистического направления, литературный критик и теоретик литературы, историк, публицист, журналист"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#paintset",
             name = "Набор акварельных красок Нева",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.11-1.jpeg",
             description = "12 цветов. Производство СССР, 80-е годы 20 века. Даритель: Шевелёва Варвара Николаевна",
-            mystery = ""
+            mystery = "12 цветов. Производство СССР, 80-е годы"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#bills",
             name = "Деревянные счета",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.11-2.jpeg",
             description = "Являются одним из ранних вычислительных устройств и вплоть до конца ХХ века массово использовались в торговле и бухгалтерском деле, пока их не заменили на калькуляторы. Даритель: Жиркова Розалия Иннокентьевна",
-            mystery = ""
+            mystery = "Простое механическое устройство для выполнения арифметических расчётов"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#calculator",
             name = "Бухгалтерский калькулятор Toshiba 1270",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.11-3.jpeg",
             description = "12-разрядный. Советских времён. Произедён в Японии",
-            mystery = ""
+            mystery = "12-разрядный. Советских времён. Произедён в Японии"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#speaker",
             name = "Абонентский громкоговоритель Обь-305",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.12.jpeg",
             description = "Выпускал Новосибирский завод низковольтной аппаратуры с 1984 года. Громкоговоритель предназначен для воспроизведения передач НЧ канала сети проводного вещания.",
-            mystery = ""
+            mystery = "Выпускал Новосибирский завод низковольтной аппаратуры с 1984 года"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#filmoscope",
             name = "Фильмоскоп ФД-2",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.13-1.jpeg",
             description = "Был довольно популярным проектором в советское время. В нём используется яркая лампа К6-30-1 и объектив типа перископ, который обеспечивает хорошую яркость и изображение. Передан в дар музею от Алексеевой Л.Р.",
-            mystery = ""
+            mystery = "В нём используется яркая лампа К6-30-1 и объектив типа перископ, который обеспечивает хорошую яркость и изображение"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#typewritter",
             name = "Пишущая машина",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.13-2.jpeg",
             description = "Механический, электромеханический или электронно-механический прибор, оснащённый набором клавиш, нажатие которых приводит к печати соответствующих символов на носителе (в большинстве случаев это бумага). Широко использовалось в XIX-XX веках",
-            mystery = ""
+            mystery = "Механический, электромеханический или электронно-механический прибор, оснащённый набором клавиш"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#player",
             name = "Проигрыватель Серенада РЭ-209",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.13.jpeg",
             description = "Последняя серийная радиола на пространстве бывшего СССР",
-            mystery = ""
+            mystery = "Стационарная радиола"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#samovar",
             name = "Самовар",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.14-1.jpeg",
             description = "Давно привычный элемент русской чайной культуры. Самовар — банка — самый распространенный вид по всей России. А с 1956 года завод «Штамп» начал выпускать электрические самовары. Самовары переданы в дар от Артомоновой Г.Г. и Захаровой А.П.",
-            mystery = ""
+            mystery = "Давно привычный элемент русской чайной культуры"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#lampa",
             name = "Керосинова лампа",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.14.jpeg",
             description = "Бытовой источник освещения на основе сгорания керосина в воздухе. Родиной керосиновой лампы считается Львов, сконструирована она была Игнатием Лукавичем и Ян Зехом в 1953 году",
-            mystery = ""
+            mystery = "Освещает за счет сжигания керосина"
         ),
         Exhibit(
             url = "https://xn--90ahbflhjgobv0ae.xn--p1ai/%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B0%D1%82%D1%8B/#photoenlarger",
             name = "Фотоувеличитель",
             imageUrl = "https://xn--90ahbflhjgobv0ae.xn--p1ai/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-16.11.15.jpeg",
             description = "Проекционный аппарат, предназначенный для оптической фотопечати. Передан в дар музею от Томского С.И.",
-            mystery = ""
+            mystery = "Проекционный аппарат, предназначенный для оптической фотопечати"
         ),
     )
 }
