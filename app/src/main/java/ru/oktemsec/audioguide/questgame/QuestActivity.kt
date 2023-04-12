@@ -33,12 +33,17 @@ class QuestActivity : AppCompatActivity() {
         game = Game(this)
         game.getNextExhibit()
 
+        // Set question to UI
+        exhibitQuestionTextView.text = game.currentExhibit.mystery
+
         val barcodeLauncher = registerForActivityResult( ScanContract()) { result: ScanIntentResult ->
             if (result.contents == null) {
                 Toast.makeText(this, "Сканирование отменено", Toast.LENGTH_SHORT).show()
             } else {
                 val resultToUser = game.checkAnswer(result.contents)
                 Toast.makeText(this, "$resultToUser \n Ваши очки: ${game.scores}", Toast.LENGTH_LONG).show()
+                game.getNextExhibit()
+                exhibitQuestionTextView.text = game.currentExhibit.mystery
             }
         }
 

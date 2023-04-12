@@ -27,12 +27,12 @@ class Game(activity: AppCompatActivity) {
     fun checkAnswer(scannedQR: String): String {
         val userAnswer = findExhibit(scannedQR)
         if (userAnswer == null) {
+            return "Неправильный QR код"
+        } else if (userAnswer == currentExhibit) {
             scores++
-            return "Your answer is wrong"
-        } else if (userAnswer.equals(currentExhibit)) {
-            return "You are right, well done"
+            return "Молодец! Правильно"
         }
-        return "Something went wrong"
+        return "Ваш ответ неправильный"
     }
 
     private fun findExhibit(scannedQR: String): Exhibit? {

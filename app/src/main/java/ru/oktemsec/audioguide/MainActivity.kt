@@ -9,6 +9,7 @@ import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import ru.oktemsec.audioguide.exhibit.ExhibitActivity
 import ru.oktemsec.audioguide.qrscanner.ScannerHandler
+import ru.oktemsec.audioguide.questgame.QuestActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     //qr scanner
     private lateinit var scanButton: Button
+    // open quest game
+    private lateinit var openQuestGameButton: Button
 
     // Player object
     lateinit var player: SingletonPlayer
@@ -45,6 +48,9 @@ class MainActivity : AppCompatActivity() {
         btPrev = findViewById(R.id.bt_prev)
         // qr scanner
         scanButton = findViewById(R.id.scan_button)
+
+        // open quest game
+        openQuestGameButton = findViewById(R.id.quest_game)
 
         // List of songs
         val songsListMainMenu: List<Sound> = listOf(
@@ -158,6 +164,10 @@ class MainActivity : AppCompatActivity() {
         }
         scanButton.setOnClickListener {
             ScannerHandler.scanCode(barcodeLauncher)
+        }
+
+        openQuestGameButton.setOnClickListener {
+            startActivity(Intent(this, QuestActivity::class.java))
         }
     }
 
