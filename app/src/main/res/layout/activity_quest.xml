@@ -73,6 +73,21 @@
             android:textColor="@color/primaryTextColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/skip_button"
+            android:drawableLeft="@drawable/ic_baseline_skip_next_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"
+            android:enabled="false"
+            android:text="@string/skip_question"/>
+        <TextView
+            android:id="@+id/skip_warning"
+            android:text="@string/skip_warning"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <ImageButton
