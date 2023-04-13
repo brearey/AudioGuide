@@ -1,5 +1,6 @@
 package ru.oktemsec.audioguide.questgame
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,20 +22,20 @@ class QuestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quest)
 
-        // Toolbar title and back button
+        // Toolbar title
         title = "Квест игра"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // widgets
         val exhibitQuestionTextView: TextView = findViewById(R.id.exhibit_question)
         val qrScannerButton: ImageButton = findViewById(R.id.open_qr_scanner)
+        val scoresTextView: TextView = findViewById(R.id.scores)
 
         // Game
         game = Game(this)
         game.getNextExhibit()
 
         // Set question to UI
-        exhibitQuestionTextView.text = game.currentExhibit.mystery
+        updateUI(exhibitQuestionTextView, scoresTextView, game)
 
         val barcodeLauncher = registerForActivityResult( ScanContract()) { result: ScanIntentResult ->
             if (result.contents == null) {
@@ -43,12 +44,19 @@ class QuestActivity : AppCompatActivity() {
                 val resultToUser = game.checkAnswer(result.contents)
                 Toast.makeText(this, "$resultToUser \n Ваши очки: ${game.scores}", Toast.LENGTH_LONG).show()
                 game.getNextExhibit()
-                exhibitQuestionTextView.text = game.currentExhibit.mystery
+                // Set question to UI
+                updateUI(exhibitQuestionTextView, scoresTextView, game)
             }
         }
 
         qrScannerButton.setOnClickListener {
             ScannerHandler.scanCode(barcodeLauncher)
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateUI(questionTextView: TextView, scoresTextView: TextView, game: Game) {
+        questionTextView.text = game.currentExhibit.mystery
+        scoresTextView.text = "${getString(R.string.exhibits_count)} ${game.scores}"
     }
 }

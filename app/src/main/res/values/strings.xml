@@ -20,5 +20,7 @@
     <string name="quest_game_rules_title">Правила игры</string>
     <string name="exhibit_description">Описание экспоната</string>
 
-    <string name="quest_game_rules">В данной игре Вам нужно находить экспонаты по их описаниям или вопросам. Когда найдете нужный экспонат - нажмите кнопку QR кода и отсканируйте QR код экспоната</string>
+    <string name="quest_game_rules">В данной игре Вам нужно находить экспонаты по их описаниям или вопросам. Когда найдете нужный экспонат - нажмите кнопку QR кода и отсканируйте QR код экспоната.</string>
+    <string name="find_the_exhibit">Найдите экспонат:</string>
+    <string name="exhibits_count">Экспонатов найдено:</string>
 </resources>
